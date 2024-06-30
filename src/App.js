@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import video from "./assets/video.mp4";
 import sunnyVideo from "./assets/sunny.mp4";
@@ -7,7 +7,11 @@ import cloudyVideo from "./assets/cloudy.mp4";
 import rainyVideo from "./assets/rainy.mp4";
 import snowVideo from "./assets/snow.mp4";
 
+const tele = window.Telegram.webApp 
 function App() {
+  useEffect(() => {
+    tele.ready()
+  })
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
